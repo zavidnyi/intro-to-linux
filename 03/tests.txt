@@ -1,0 +1,21 @@
+#!/bin/bash
+
+rm -rf __tests
+mkdir __tests
+cd __tests
+wget https://d3s.mff.cuni.cz/f/teaching/nswi177/tests.tar.gz
+tar xzf tests.tar.gz
+cd ..
+bats __tests/[01][0-9].bats
+
+
+first this program deletes directory __tests and its contents
+then creates new __tests directory
+cd into __test directory
+download a compressed archive from the specified url
+extract files from tests.tar.gz into the current directory(__tests)
+exit the directory to the parent directory
+run the tests which start with 0 or 1, have 0-9 in the middle and end with .bats
+
+extra:
+script has to be run in the existing __test directory
